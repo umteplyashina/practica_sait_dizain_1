@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Coder — Portfolio</title>
+  <meta name="description" content="Сайты, интерфейсы и digital-проекты, которые выглядят как вайб, а работают как система.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="target-cursor.css">
+</head>
+<body>
+  <div class="target-cursor-wrapper" aria-hidden="true">
+    <div class="target-cursor-dot"></div>
+    <div class="target-cursor-corner corner-tl"></div>
+    <div class="target-cursor-corner corner-tr"></div>
+    <div class="target-cursor-corner corner-br"></div>
+    <div class="target-cursor-corner corner-bl"></div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="mesh" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#top">Vibe Coder</a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">Обо мне</a>
+      <a href="#skills">Умения</a>
+      <a href="#projects">Проекты</a>
+      <a href="#fit">Нам по пути?</a>
+      <a href="#testimonials">Отзывы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="nav-cta" href="#cta">Обсудить</a>
+    <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb hero-orb--one"></div>
+        <div class="hero-orb hero-orb--two"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <figure class="hero-photo">
+        <div class="hero-photo__parallax">
+          <img src="photo.png" alt="Портрет — Vibe Coder" width="1024" height="1536">
+        </div>
+        <span class="hero-photo-frame" aria-hidden="true"></span>
+        <span class="hero-photo-accent" aria-hidden="true"></span>
+      </figure>
+
+      <div class="hero-content">
+        <p class="hero-label hero-stagger" style="--d: 0">Vibe Coder / Portfolio / Web &amp; AI Experiences</p>
+        <h1
+          class="brand hero-stagger text-type"
+          style="--d: 1"
+          data-text-type
+          aria-label="Vibe Coder"
+        ></h1>
+        <p class="hero-title hero-stagger" style="--d: 2">
+          Сайт для тех, кому важно выглядеть дорого — и быть понятными с первого экрана
+        </p>
+        <p class="hero-lead hero-stagger" style="--d: 3">
+          Я собираю страницы для экспертов, креаторов и digital-проектов: с характером, ясной логикой и ощущением «это про меня», а не «ещё один шаблон».
+        </p>
+        <div class="hero-actions hero-stagger" style="--d: 4">
+          <a class="btn btn--primary" href="#projects">Посмотреть проекты</a>
+          <a class="btn btn--ghost" href="#cta">Обсудить задачу</a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="hero-scroll-line"></span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>вайб</span><span>структура</span><span>подача</span><span>ритм</span><span>характер</span><span>система</span>
+        <span>вайб</span><span>структура</span><span>подача</span><span>ритм</span><span>характер</span><span>система</span>
+      </div>
+    </div>
+
+    <section class="section about" id="about">
+      <div class="section-inner">
+        <div class="section-head section-head--offset">
+          <p class="section-label">Обо мне</p>
+          <h2 class="section-title">Мне важно, чтобы сайт говорил вашим голосом — а не языком шаблона</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              Я работаю на стыке кода, визуала, UX и AI-инструментов.
+              Обычно ко мне приходят, когда уже есть опыт и продукт — но страница пока не отражает уровень:
+              либо «нормально сверстано», либо слишком похоже на всех.
+            </p>
+            <p>
+              Моя задача — собрать ощущение, смысл и путь человека по сайту так,
+              чтобы вас понимали быстрее, доверяли охотнее и хотелось вернуться.
+              Быстро — да. Красиво — да. Но без пустой картинки «ради вайба».
+            </p>
+          </div>
+          <div class="about-side">
+            <p class="about-side-label">С чем приходят чаще всего</p>
+            <ul class="about-list">
+              <li>личный бренд и экспертные сайты</li>
+              <li>лендинги под запуск и продажи</li>
+              <li>портфолио с характером</li>
+              <li>промо под воронку</li>
+              <li>концепты для AI- и digital-продуктов</li>
+              <li>пересборка «шаблонного» сайта</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Что я умею</p>
+          <h2 class="section-title">Что я делаю</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="skill" style="--i: 0">
+            <span class="skill-num">01</span>
+            <h3>Лендинги</h3>
+            <p>Сайты, которые не просто «есть», а собирают внимание, держат ритм и ведут человека по смыслу.</p>
+          </article>
+          <article class="skill" style="--i: 1">
+            <span class="skill-num">02</span>
+            <h3>Портфолио и личные сайты</h3>
+            <p>Страницы, которые показывают не только работы, но и стиль, характер и уровень.</p>
+          </article>
+          <article class="skill" style="--i: 2">
+            <span class="skill-num">03</span>
+            <h3>Визуальные концепты</h3>
+            <p>Когда нужен не просто сайт, а ощущение: атмосфера, характер, настроение, подача.</p>
+          </article>
+          <article class="skill" style="--i: 3">
+            <span class="skill-num">04</span>
+            <h3>AI + Web</h3>
+            <p>Использую нейросети как инструмент ускорения и усиления идей, а не как замену мышлению.</p>
+          </article>
+          <article class="skill" style="--i: 4">
+            <span class="skill-num">05</span>
+            <h3>UX и структура</h3>
+            <p>Продумываю, как человек читает, куда смотрит, где теряется и где принимает решение.</p>
+          </article>
+          <article class="skill" style="--i: 5">
+            <span class="skill-num">06</span>
+            <h3>Быстрый запуск</h3>
+            <p>Могу собрать сильную первую версию быстро, без месяцев бесконечных согласований.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div class="section-inner">
+        <div class="section-head section-head--narrow">
+          <p class="section-label">Мой подход</p>
+          <h2 class="section-title">Как я работаю</h2>
+        </div>
+        <ol class="steps">
+          <li class="step" style="--i: 0">
+            <span class="step-num">01</span>
+            <div>
+              <h3>Сначала — ваш человек и ощущение</h3>
+              <p>Разбираемся, кому вы говорите и какое чувство должен оставить первый экран. Не «красиво вообще», а точно под вашу аудиторию.</p>
+            </div>
+          </li>
+          <li class="step" style="--i: 1">
+            <span class="step-num">02</span>
+            <div>
+              <h3>Потом — ясная структура</h3>
+              <p>Собираю сценарий: что человек читает первым, где сомневается, где принимает решение. Красота без логики не держит.</p>
+            </div>
+          </li>
+          <li class="step" style="--i: 2">
+            <span class="step-num">03</span>
+            <div>
+              <h3>И только потом — сборка</h3>
+              <p>Когда есть тон, смысл и путь — страница собирается быстрее и выглядит цельно. Без месяцев бесконечных правок «на вкус».</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Проекты</p>
+          <h2 class="section-title">Избранные проекты</h2>
+        </div>
+        <div class="projects-list">
+          <article class="project" style="--i: 0">
+            <div class="project-media project-media--landing">
+              <button class="project-preview cursor-target" type="button" data-project-preview="project-landing.png" data-project-title="AI Landing Experience">
+                <span class="project-overlay">
+                  <span class="project-overlay-label">Открыть превью</span>
+                  <span class="project-overlay-text">Лендинг с сильным первым экраном и атмосферной подачей</span>
+                </span>
+              <img src="project-landing.png" alt="Превью лендинга" width="1024" height="768">
+              </button>
+            </div>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="project-index">01</span>
+                <span class="project-tag">Лендинг</span>
+              </div>
+              <h3>AI Landing Experience</h3>
+              <p>Лендинг для digital-продукта с акцентом на атмосферу, скорость восприятия и современный визуал.</p>
+              <p class="project-meta">Структура · тексты · дизайн-концепция · сборка</p>
+              <button class="project-link cursor-target" type="button" data-project-preview="project-landing.png" data-project-title="AI Landing Experience">Смотреть кейс</button>
+            </div>
+          </article>
+
+          <article class="project" style="--i: 1">
+            <div class="project-media project-media--portfolio">
+              <button class="project-preview cursor-target" type="button" data-project-preview="project-portfolio.png" data-project-title="Portfolio for Creative Expert">
+                <span class="project-overlay">
+                  <span class="project-overlay-label">Открыть превью</span>
+                  <span class="project-overlay-text">Персональный сайт с чистой композицией и характером</span>
+                </span>
+              <img src="project-portfolio.png" alt="Превью сайта-портфолио" width="1024" height="768">
+              </button>
+            </div>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="project-index">02</span>
+                <span class="project-tag">Портфолио</span>
+              </div>
+              <h3>Portfolio for Creative Expert</h3>
+              <p>Личный сайт-портфолио, который показывает не только кейсы, но и стиль человека.</p>
+              <p class="project-meta">Позиционирование · подача · визуальный ритм · упаковка работ</p>
+              <button class="project-link cursor-target" type="button" data-project-preview="project-portfolio.png" data-project-title="Portfolio for Creative Expert">Смотреть кейс</button>
+            </div>
+          </article>
+
+          <article class="project" style="--i: 2">
+            <div class="project-media project-media--promo">
+              <button class="project-preview cursor-target" type="button" data-project-preview="project-bots.png" data-project-title="Bot &amp; Funnel Page">
+                <span class="project-overlay">
+                  <span class="project-overlay-label">Открыть превью</span>
+                  <span class="project-overlay-text">Промо и воронка с упором на конверсию и быстрый считываемый ритм</span>
+                </span>
+              <img src="project-bots.png" alt="Превью промо-страницы и ботов" width="1024" height="768">
+              </button>
+            </div>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="project-index">03</span>
+                <span class="project-tag">Промо</span>
+              </div>
+              <h3>Bot &amp; Funnel Page</h3>
+              <p>Промо-страница под воронку и digital-продукт с акцентом на конверсию и лёгкость восприятия.</p>
+              <p class="project-meta">Логика блоков · тексты · CTA · визуальный каркас</p>
+              <button class="project-link cursor-target" type="button" data-project-preview="project-bots.png" data-project-title="Bot &amp; Funnel Page">Смотреть кейс</button>
+            </div>
+          </article>
+
+          <article class="project" style="--i: 3">
+            <div class="project-media project-media--concept">
+              <button class="project-preview cursor-target" type="button" data-project-preview="project-concept.png" data-project-title="Concept Site for AI Creator">
+                <span class="project-overlay">
+                  <span class="project-overlay-label">Открыть превью</span>
+                  <span class="project-overlay-text">Концепт с чистой typographic-подачей и мягким editorial-вайбом</span>
+                </span>
+              <img src="project-concept.png" alt="Превью концепта курса по вайб-кодингу" width="1024" height="768">
+              </button>
+            </div>
+            <div class="project-body">
+              <div class="project-topline">
+                <span class="project-index">04</span>
+                <span class="project-tag">Концепт</span>
+              </div>
+              <h3>Concept Site for AI Creator</h3>
+              <p>Концепт страницы с сильным первым экраном, чистой typographic-подачей и ощущением собранного digital-продукта.</p>
+              <p class="project-meta">Creative direction · структура · визуальная концепция</p>
+              <button class="project-link cursor-target" type="button" data-project-preview="project-concept.png" data-project-title="Concept Site for AI Creator">Смотреть кейс</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why" id="why">
+      <div class="section-inner why-inner">
+        <div class="section-head section-head--offset">
+          <p class="section-label">Почему со мной</p>
+          <h2 class="section-title">Не «сделать сайт», а помочь вам звучать сильнее онлайн</h2>
+        </div>
+        <p class="why-lead">Потому что я смотрю на проект глазами вашего человека — а не только глазами вёрстки.</p>
+        <div class="why-columns">
+          <div class="why-block why-block--mute">
+            <p class="why-caption">Не только</p>
+            <ul>
+              <li>как это собрать технически</li>
+            </ul>
+          </div>
+          <div class="why-block">
+            <p class="why-caption">Но и</p>
+            <ul>
+              <li>кому вы хотите попасть в голову</li>
+              <li>что человек должен почувствовать за 5 секунд</li>
+              <li>где он зацепится и почему останется</li>
+              <li>как страница поможет вам продавать и объяснять себя</li>
+              <li>почему это будет выглядеть дороже «просто сверстанного»</li>
+            </ul>
+          </div>
+        </div>
+        <p class="why-formula">
+          <span>ваш смысл</span>
+          <span class="why-plus">+</span>
+          <span>вкус</span>
+          <span class="why-plus">+</span>
+          <span>ясная структура</span>
+          <span class="why-plus">+</span>
+          <span>живая подача</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section stack" id="stack">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Стек</p>
+          <h2 class="section-title">Инструменты</h2>
+        </div>
+        <ul class="badges">
+          <li>ChatGPT</li>
+          <li>Cursor</li>
+          <li>HTML / CSS / JS</li>
+          <li>React</li>
+          <li>Tailwind</li>
+          <li>Framer Motion</li>
+          <li>Figma</li>
+          <li>Tilda / Webflow / custom</li>
+          <li>Telegram / Bots / AI tools</li>
+        </ul>
+        <p class="stack-note">
+          Но если честно — главный инструмент не стек, а вкус, насмотренность и умение собирать цельное впечатление.
+        </p>
+      </div>
+    </section>
+
+    <section class="section audience" id="audience">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Для кого</p>
+          <h2 class="section-title">С кем мне интересно работать</h2>
+        </div>
+        <p class="audience-lead">
+          Мой человек — не «всем подряд». Это тот, у кого уже есть экспертиза, продукт или идея,
+          и кто хочет сайт как продолжение себя: честный, сильный и без безликой упаковки.
+        </p>
+
+        <div class="audience-portrait">
+          <article class="audience-card audience-card--yes">
+            <p class="audience-card-label">Нам по пути, если вы</p>
+            <ul class="audience-points">
+              <li>
+                <span class="audience-point-num">01</span>
+                <div>
+                  <strong>Эксперт, консультант, коуч или преподаватель</strong>
+                  <p>Нужен личный сайт или лендинг, где сразу считываются уровень, стиль и доверие — без «корпоративной воды».</p>
+                </div>
+              </li>
+              <li>
+                <span class="audience-point-num">02</span>
+                <div>
+                  <strong>Креатор, фаундер AI- или digital-продукта</strong>
+                  <p>Хотите упаковать запуск, портфолио или промо так, чтобы это хотелось переслать и запомнить.</p>
+                </div>
+              </li>
+              <li>
+                <span class="audience-point-num">03</span>
+                <div>
+                  <strong>Человек, которому важен вкус</strong>
+                  <p>Устали от шаблонных страниц и готовы говорить о смысле, аудитории и ощущении — а не только о «блоках».</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <article class="audience-card audience-card--no">
+            <p class="audience-card-label">Скорее не моё, если нужно</p>
+            <ul class="audience-points">
+              <li>
+                <span class="audience-point-num">—</span>
+                <div>
+                  <strong>Самый дешёвый шаблон «на вчера»</strong>
+                  <p>Без обсуждения задачи, тона и того, для кого страница вообще существует.</p>
+                </div>
+              </li>
+              <li>
+                <span class="audience-point-num">—</span>
+                <div>
+                  <strong>Большой enterprise без ясного запроса</strong>
+                  <p>Я лучше всего работаю с живыми людьми и компактными командами, где можно быстро принимать решения.</p>
+                </div>
+              </li>
+              <li>
+                <span class="audience-point-num">—</span>
+                <div>
+                  <strong>«Сделайте красиво, смысл потом»</strong>
+                  <p>Красота без логики и портрета аудитории обычно не держит — и я это не маскирую.</p>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fit" id="fit">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Проверка</p>
+          <h2 class="section-title">Нам по пути?</h2>
+        </div>
+        <p class="fit-lead">
+          Короткий честный тест — не форма «оставьте заявку», а способ понять,
+          получится ли у нас сильный проект вместе. 4 вопроса, без воды.
+        </p>
+
+        <div class="fit-quiz" data-fit-quiz>
+          <div class="fit-progress" aria-hidden="true">
+            <span class="fit-progress-bar" data-fit-progress></span>
+          </div>
+          <p class="fit-step-label" data-fit-step>Вопрос 1 из 4</p>
+
+          <div class="fit-stage" data-fit-stage="questions">
+            <h3 class="fit-question" data-fit-question></h3>
+            <div class="fit-options" data-fit-options role="group" aria-label="Варианты ответа"></div>
+          </div>
+
+          <div class="fit-stage is-hidden" data-fit-stage="result">
+            <p class="fit-result-eyebrow" data-fit-result-eyebrow></p>
+            <h3 class="fit-result-title" data-fit-result-title></h3>
+            <p class="fit-result-text" data-fit-result-text></p>
+            <div class="fit-result-actions">
+              <a class="btn btn--primary cursor-target" data-fit-primary href="#contact">Написать мне</a>
+              <button class="btn btn--ghost cursor-target" type="button" data-fit-restart>Пройти ещё раз</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="testimonials">
+      <div class="section-inner reviews-intro">
+        <div class="section-head">
+          <p class="section-label">Отзывы</p>
+          <h2 class="section-title">Что говорят после запуска</h2>
+        </div>
+        <p class="reviews-lead">
+          Не про «спасибо за сайт», а про то, как проект ощущается после релиза —
+          когда появляется характер, ритм и желание показать его дальше.
+        </p>
+      </div>
+
+      <div class="reviews-track" data-reviews-track>
+        <div class="reviews-sticky">
+          <div class="reviews-stack" data-reviews-stack>
+            <article class="reviews-card" data-reviews-card>
+              <div class="reviews-stars" data-rating="5" aria-label="Оценка 5 из 5">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <blockquote>
+                Сайт получился не шаблоном, а ощущением. Люди сами пишут, что хочется листать.
+              </blockquote>
+              <div class="reviews-author">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="" width="64" height="64">
+                <div>
+                  <strong>Анна Соколова</strong>
+                  <span>Эксперт · личный бренд</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="reviews-card" data-reviews-card>
+              <div class="reviews-stars" data-rating="5" aria-label="Оценка 5 из 5">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <blockquote>
+                Собрали сильную первую версию быстро — и сразу было видно характер, а не «ещё один лендинг».
+              </blockquote>
+              <div class="reviews-author">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop" alt="" width="64" height="64">
+                <div>
+                  <strong>Игорь Матвеев</strong>
+                  <span>Основатель digital-проекта</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="reviews-card" data-reviews-card>
+              <div class="reviews-stars" data-rating="5" aria-label="Оценка 5 из 5">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <blockquote>
+                Тут чувствуется вкус и структура. Проект стал выглядеть дороже, чем стоил.
+              </blockquote>
+              <div class="reviews-author">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop" alt="" width="64" height="64">
+                <div>
+                  <strong>Мария Орлова</strong>
+                  <span>Креатор · AI-продукт</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="reviews-card" data-reviews-card>
+              <div class="reviews-stars" data-rating="5" aria-label="Оценка 5 из 5">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <blockquote>
+                От вайба до готовой страницы — без бесконечных согласований и потери смысла по дороге.
+              </blockquote>
+              <div class="reviews-author">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" alt="" width="64" height="64">
+                <div>
+                  <strong>Дмитрий Волков</strong>
+                  <span>Продюсер спецпроекта</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" id="manifesto">
+      <p class="manifesto-mark" aria-hidden="true">”</p>
+      <blockquote>
+        Хороший сайт — это не когда «нормально сверстано».
+        Это когда человек заходит и за секунды понимает: «да, это про меня / для меня».
+      </blockquote>
+    </section>
+
+    <section class="section cta" id="cta">
+      <div class="section-inner cta-inner">
+        <p class="section-label">Дальше</p>
+        <h2 class="section-title">
+          Если узнали себя — давайте соберём страницу, которая говорит вашим голосом
+        </h2>
+        <p class="cta-copy">
+          Помогу с концепцией, структурой, упаковкой и реализацией.
+          От портрета вашей аудитории и первого вайба — до готовой страницы, которую не стыдно показать.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#contact">Написать мне</a>
+          <a class="btn btn--ghost" href="#projects">Посмотреть работы</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Контакты</p>
+          <h2 class="section-title">Связаться</h2>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-link" href="https://t.me/ulia_teplyashina" target="_blank" rel="noopener noreferrer">
+            <span>Telegram</span>
+            <strong>@ulia_teplyashina</strong>
+          </a>
+          <a class="contact-link" href="mailto:u.m.teplyashina@gmail.com">
+            <span>Email</span>
+            <strong>u.m.teplyashina@gmail.com</strong>
+          </a>
+        </div>
+        <ul class="socials">
+          <li><a href="#" target="_blank" rel="noopener noreferrer">Behance</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">Notion</a></li>
+          <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Vibe Coder. Собрано с характером.</p>
+    <a href="#top">Наверх ↑</a>
+  </footer>
+
+  <div class="lightbox" id="project-lightbox" aria-hidden="true">
+    <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="Закрыть просмотр"></button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+      <button class="lightbox-close cursor-target" type="button" data-lightbox-close aria-label="Закрыть">×</button>
+      <p class="lightbox-title" id="lightbox-title"></p>
+      <img class="lightbox-image" src="" alt="">
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="text-type.js"></script>
+  <script src="target-cursor.js"></script>
+  <script src="testimonials.js"></script>
+  <script src="fit-quiz.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
