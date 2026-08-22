@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Супер Человечек</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap&subset=cyrillic,latin" rel="stylesheet" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>Супер Человечек</h1>
+
+    <div class="shell">
+      <div class="stage-area">
+        <div class="stage">
+          <canvas id="game" width="960" height="540"></canvas>
+        </div>
+      </div>
+
+      <div class="pad" id="touch">
+        <div class="pad-group pad-move">
+          <button type="button" class="btn btn-dir" data-key="ArrowLeft" aria-label="Влево">◀</button>
+          <button type="button" class="btn btn-dir" data-key="ArrowRight" aria-label="Вправо">▶</button>
+        </div>
+        <div class="pad-group pad-act">
+          <button type="button" class="btn btn-jump" data-key="ArrowUp" aria-label="Прыжок">ПРЫЖОК</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bar">
+      <button type="button" class="chip" data-action="pause" id="btnPause" aria-label="Пауза">ПАУЗА</button>
+      <button type="button" class="chip" data-action="sound" id="btnSound" aria-pressed="false">ЗВУК: ВКЛ</button>
+      <button type="button" class="chip" data-action="fullscreen" id="btnFull">НА ВЕСЬ ЭКРАН</button>
+    </div>
+
+    <p class="hint">Стрелки / WASD — ходьба · Пробел или ↑ — прыжок · P — пауза · M — звук · Головой бей блоки с «?»</p>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
