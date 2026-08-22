@@ -25,6 +25,7 @@
     tick: 0,
     camX: 0,
     shake: 0,
+    shakeX: 0,
     checkpoint: 3 * TILE,
     flagX: 0,
     map: [],
@@ -112,6 +113,12 @@
     return code;
   }
 
+  const isEmbed = window.parent !== window;
+  if (isEmbed) {
+    document.documentElement.classList.add("is-embed");
+    document.body.classList.add("is-embed");
+  }
+
   const pad = document.getElementById("touch");
   const padPointers = new Map();
   let touchHeld = new Set();
@@ -197,6 +204,29 @@
 
   pad.addEventListener("contextmenu", (e) => e.preventDefault());
 
+  // Мышь на десктопе: прямое зажатие кнопок (важно во фрейме на сайте).
+  pad.querySelectorAll("button[data-key]").forEach((btn) => {
+    const key = btn.dataset.key;
+    btn.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      pressKey(key);
+      btn.classList.add("pressed");
+      ensureAudio();
+    });
+    const releaseBtn = () => {
+      keys[key] = false;
+      btn.classList.remove("pressed");
+    };
+    btn.addEventListener("mouseup", releaseBtn);
+    btn.addEventListener("mouseleave", releaseBtn);
+  });
+
+  if (isEmbed) {
+    const focusGame = () => window.focus();
+    window.addEventListener("mousedown", focusGame);
+    canvas.addEventListener("mousedown", focusGame);
+  }
+
   function releaseAll() {
     for (const k of Object.keys(keys)) keys[k] = false;
     padPointers.clear();
@@ -222,6 +252,8 @@
   const soundBtn = document.getElementById("btnSound");
   const fullBtn = document.getElementById("btnFull");
   const pauseBtn = document.getElementById("btnPause");
+  const backBtn = document.getElementById("btnBack");
+  let embedParentFullscreen = false;
 
   function setMuted(v) {
     muted = v;
@@ -242,6 +274,40 @@
 
   function fullscreenActive() {
     return Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+
+  function isGameFullscreen() {
+    return fullscreenActive() || embedParentFullscreen;
+  }
+
+  function updateFullscreenUi() {
+    const active = isGameFullscreen();
+    if (fullBtn) {
+      fullBtn.textContent = active ? "ВЫХОД" : "НА ВЕСЬ ЭКРАН";
+    }
+    if (backBtn) {
+      backBtn.hidden = !active;
+    }
+  }
+
+  function exitGameFullscreen() {
+    if (isEmbed) {
+      window.parent.postMessage({ type: "game-exit-fullscreen" }, "*");
+      embedParentFullscreen = false;
+      updateFullscreenUi();
+      return;
+    }
+    if (fullscreenActive()) exitFullscreen();
+  }
+
+  function enterGameFullscreen() {
+    if (isEmbed) {
+      embedParentFullscreen = true;
+      updateFullscreenUi();
+      window.parent.postMessage({ type: "game-request-fullscreen" }, "*");
+      return;
+    }
+    requestFullscreen();
   }
 
   // Кнопки-чипы не должны забирать фокус: иначе пробел начнёт нажимать их,
@@ -265,11 +331,31 @@
   });
 
   onChip(fullBtn, () => {
-    if (fullscreenActive()) exitFullscreen();
-    else requestFullscreen();
+    if (isGameFullscreen()) exitGameFullscreen();
+    else enterGameFullscreen();
   });
 
-  if (!(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen)) {
+  if (backBtn) {
+    onChip(backBtn, () => exitGameFullscreen());
+  }
+
+  document.addEventListener("fullscreenchange", updateFullscreenUi);
+  document.addEventListener("webkitfullscreenchange", updateFullscreenUi);
+
+  if (isEmbed) {
+    window.addEventListener("message", (event) => {
+      const data = event.data;
+      if (!data || typeof data !== "object") return;
+      if (data.type === "game-fullscreen-state") {
+        embedParentFullscreen = Boolean(data.active);
+        updateFullscreenUi();
+      }
+    });
+  }
+
+  updateFullscreenUi();
+
+  if (!(document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen) && !isEmbed) {
     fullBtn.hidden = true;
   }
 
@@ -1112,7 +1198,12 @@
       t.y -= 0.6 * f;
       return t.t < 40;
     });
-    if (game.shake > 0) game.shake -= f;
+    if (game.shake > 0) {
+      game.shakeX = rand(-game.shake, game.shake);
+      game.shake -= f;
+    } else {
+      game.shakeX = 0;
+    }
     for (const b of game.blocks.values()) {
       if (b.bump > 0) b.bump -= f;
     }
@@ -1124,9 +1215,12 @@
     game.camX += (target - game.camX) * 0.12;
     const max = COLS * TILE - W;
     game.camX = clamp(game.camX, 0, Math.max(0, max));
+    game.camX = Math.round(game.camX);
   }
 
-  function worldX(x) { return x - game.camX + (game.shake ? rand(-game.shake, game.shake) : 0); }
+  function worldX(x) {
+    return Math.round(x - game.camX + game.shakeX);
+  }
 
   function roundRect(x, y, w, h, r) {
     ctx.beginPath();

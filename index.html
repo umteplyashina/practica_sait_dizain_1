@@ -31,6 +31,7 @@
       <a href="#about">Обо мне</a>
       <a href="#skills">Умения</a>
       <a href="#projects">Проекты</a>
+      <a href="#playground">Демо</a>
       <a href="#fit">Нам по пути?</a>
       <a href="#testimonials">Отзывы</a>
       <a href="#contact">Контакты</a>
@@ -292,6 +293,41 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section playground" id="playground">
+      <div class="section-inner">
+        <div class="section-head">
+          <p class="section-label">Интерактив</p>
+          <h2 class="section-title">Не только смотреть — можно поиграть</h2>
+        </div>
+        <p class="playground-lead">
+          Мини-платформер на чистом HTML, CSS и JavaScript — собран прямо для этого портфолио.
+          Кликните в игру для клавиатуры · ◀ ▶ и «Прыжок» работают мышью · Пробел — прыжок · головой бей блоки с «?»
+        </p>
+        <div class="playground-frame-wrap">
+          <div class="playground-fs-host" id="playgroundFsHost">
+            <iframe
+              class="playground-frame"
+              src="game-embed.html"
+              title="Супер Человечек — браузерная игра"
+              loading="lazy"
+              tabindex="0"
+              allow="fullscreen"
+            ></iframe>
+            <button
+              type="button"
+              class="playground-exit cursor-target"
+              id="gameFullscreenExit"
+              hidden
+              aria-label="Выйти из игры и вернуться на сайт"
+            >← К САЙТУ</button>
+          </div>
+        </div>
+        <p class="playground-foot">
+          <a class="cursor-target" href="index1.html" target="_blank" rel="noopener noreferrer">Открыть игру на весь экран ↗</a>
+        </p>
       </div>
     </section>
 

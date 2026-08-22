@@ -205,6 +205,37 @@ canvas {
   .hint { display: none; }
 }
 
+/* Встроена в сайт — кнопки управления всегда видны (десктоп + фрейм). */
+.is-embed .pad-group {
+  display: flex;
+}
+
+.is-embed .shell {
+  row-gap: 8px;
+}
+
+.is-embed .btn-dir {
+  width: clamp(56px, 14vw, 88px);
+  height: clamp(52px, 11vh, 72px);
+  font-size: clamp(14px, 3.5vw, 22px);
+}
+
+.is-embed .btn-jump {
+  min-width: clamp(96px, 26vw, 168px);
+  height: clamp(52px, 11vh, 72px);
+  font-size: clamp(8px, 2.2vw, 12px);
+}
+
+.chip-back {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.chip-back:active {
+  background: rgba(255, 255, 255, 0.22);
+}
+
 /* Телефон в горизонтальной ориентации: вертикали мало, поэтому кнопки
    уезжают в боковые колонки под большие пальцы, а игра остаётся посередине
    целиком открытой. */

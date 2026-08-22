@@ -61,7 +61,7 @@ if (toggle && header && nav) {
 }
 
 const revealTargets = document.querySelectorAll(
-  ".section-head, .about-copy, .about-side, .skill, .step, .project, .why-lead, .why-block, .why-formula, .badges, .stack-note, .audience-lead, .audience-card, .fit-lead, .fit-quiz, .reviews-intro, .manifesto, .cta-inner, .contact-link, .socials"
+  ".section-head, .about-copy, .about-side, .skill, .step, .project, .playground-lead, .playground-frame-wrap, .playground-foot, .why-lead, .why-block, .why-formula, .badges, .stack-note, .audience-lead, .audience-card, .fit-lead, .fit-quiz, .reviews-intro, .manifesto, .cta-inner, .contact-link, .socials"
 );
 
 const projects = document.querySelectorAll(".project");
@@ -115,7 +115,7 @@ if (brandType && window.TextType) {
 
 document
   .querySelectorAll(
-    ".btn, .logo, .nav a, .nav-cta, .nav-toggle, .contact-link, .socials a, .project, .badges li, .site-footer a, .fit-option, .project-preview, .project-link"
+    ".btn, .logo, .nav a, .nav-cta, .nav-toggle, .contact-link, .socials a, .project, .badges li, .site-footer a, .fit-option, .project-preview, .project-link, .playground-exit"
   )
   .forEach((el) => el.classList.add("cursor-target"));
 
@@ -167,8 +167,70 @@ lightboxClosers?.forEach((closer) => {
   closer.addEventListener("click", closeLightbox);
 });
 
+const gameFrame = document.querySelector(".playground-frame");
+const gameFsHost = document.getElementById("playgroundFsHost");
+const gameExitBtn = document.getElementById("gameFullscreenExit");
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    const fsEl = document.fullscreenElement || document.webkitFullscreenElement;
+    if (gameFsHost && fsEl === gameFsHost) {
+      const exit = document.exitFullscreen || document.webkitExitFullscreen;
+      exit?.call(document);
+      return;
+    }
     closeLightbox();
   }
 });
+
+if (gameFrame && gameFsHost) {
+  const notifyGameFullscreen = (active) => {
+    gameFrame.contentWindow?.postMessage({ type: "game-fullscreen-state", active }, "*");
+  };
+
+  const setGameFullscreenUi = (active) => {
+    if (gameExitBtn) {
+      gameExitBtn.hidden = !active;
+    }
+    notifyGameFullscreen(active);
+  };
+
+  const requestGameFrameFullscreen = () => {
+    const req = gameFsHost.requestFullscreen || gameFsHost.webkitRequestFullscreen;
+    if (req) {
+      req.call(gameFsHost).catch(() => {
+        setGameFullscreenUi(false);
+      });
+    }
+  };
+
+  const exitGameFrameFullscreen = () => {
+    const exit = document.exitFullscreen || document.webkitExitFullscreen;
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+      exit?.call(document);
+    }
+    setGameFullscreenUi(false);
+  };
+
+  gameExitBtn?.addEventListener("click", () => {
+    exitGameFrameFullscreen();
+  });
+
+  window.addEventListener("message", (event) => {
+    if (event.source !== gameFrame.contentWindow) return;
+    const { type } = event.data || {};
+    if (type === "game-request-fullscreen") requestGameFrameFullscreen();
+    if (type === "game-exit-fullscreen") exitGameFrameFullscreen();
+  });
+
+  document.addEventListener("fullscreenchange", () => {
+    setGameFullscreenUi(document.fullscreenElement === gameFsHost);
+  });
+  document.addEventListener("webkitfullscreenchange", () => {
+    setGameFullscreenUi(document.webkitFullscreenElement === gameFsHost);
+  });
+
+  gameFrame.addEventListener("load", () => {
+    setGameFullscreenUi(false);
+  });
+}
