@@ -61,7 +61,7 @@ if (toggle && header && nav) {
 }
 
 const revealTargets = document.querySelectorAll(
-  ".section-head, .about-copy, .about-side, .skill, .step, .project, .playground-lead, .playground-frame-wrap, .playground-foot, .why-lead, .why-block, .why-formula, .badges, .stack-note, .audience-lead, .audience-card, .fit-lead, .fit-quiz, .reviews-intro, .manifesto, .cta-inner, .contact-link, .socials"
+  ".section-head, .about-copy, .about-side, .skill, .step, .project, .why-lead, .why-block, .why-formula, .badges, .stack-note, .audience-lead, .audience-card, .fit-lead, .fit-quiz, .reviews-intro, .manifesto, .cta-inner, .contact-link, .socials"
 );
 
 const projects = document.querySelectorAll(".project");
