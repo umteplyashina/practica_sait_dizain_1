@@ -819,6 +819,10 @@ blockquote {
   object-position: center top;
 }
 
+.project-media--estimator img {
+  object-position: left top;
+}
+
 .project-media--app {
   aspect-ratio: 16 / 11;
   background:
